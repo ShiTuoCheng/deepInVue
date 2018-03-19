@@ -1,4 +1,5 @@
 /*jshint esversion: 6 */
+/* 实现双向绑定 */
 
 function cd(value) {
   console.log('更新世图咯');
@@ -17,16 +18,13 @@ function defineReactive(obj, key, val){
   });
 }
 
+
 function observable(value) {
   if(!value || (typeof value !== 'object')){
     return;
   }
 
-  // console.log(Object.key(value));
-
   Object.keys(value).forEach((key) => {
-    console.log(value);
-    console.log(key);
     defineReactive(value, key, value[key]);
   })
 }
